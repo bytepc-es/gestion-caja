@@ -40,11 +40,11 @@ try {
     )";
     $pdo->exec($sqlConfig);
 
-    $stmt = $pdo->query("SELECT COUNT(*) FROM configuracion");
-    if ($stmt->fetchColumn() == 0) {
-        $pdo->exec("INSERT INTO configuracion (clave, valor) VALUES ('nombre_empresa', 'Gestión de Caja')");
-        $pdo->exec("INSERT INTO configuracion (clave, valor) VALUES ('logo_base64', '')");
-    }
+    // INSERT OR IGNORE evita borrar la configuración existente (como el logo o el nombre)
+    $pdo->exec("INSERT OR IGNORE INTO configuracion (clave, valor) VALUES ('nombre_empresa', 'Gestión de Caja')");
+    $pdo->exec("INSERT OR IGNORE INTO configuracion (clave, valor) VALUES ('logo_base64', '')");
+    $pdo->exec("INSERT OR IGNORE INTO configuracion (clave, valor) VALUES ('horario_manana', '6:00 - 13:00')");
+    $pdo->exec("INSERT OR IGNORE INTO configuracion (clave, valor) VALUES ('horario_tarde', '17:00 - 21:00')");
 
 } catch (PDOException $e) {
     die("Error de conexión: " . $e->getMessage());
