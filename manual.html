@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Gestión de Caja</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Contenedor principal para simular una hoja */
+        .page {
+            background: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Cabecera con Logo */
+        .header-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header-logo img {
+            max-height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Tipografía */
+        h1 {
+            color: #0d6efd;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            border-bottom: 3px solid #0d6efd;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #0b5ed7;
+            margin-top: 40px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 25px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* Listas */
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Cajas de aviso */
+        .alert {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 25px 0;
+            border-left: 5px solid;
+        }
+
+        .alert-info {
+            background-color: #e7f1ff;
+            border-color: #0d6efd;
+            color: #084298;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            border-color: #ffc107;
+            color: #664d03;
+        }
+
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        /* Textos destacados */
+        .text-success { color: #198754; font-weight: bold; }
+        .text-danger { color: #dc3545; font-weight: bold; }
+        .text-primary { color: #0d6efd; font-weight: bold; }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+        }
+
+        .footer img {
+            max-height: 35px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        /* =========================================
+           ESTILOS EXCLUSIVOS PARA LA IMPRESIÓN (PDF)
+           ========================================= */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                max-width: 100%;
+                font-size: 11pt; /* Tamaño de letra ideal para A4 */
+            }
+            .page {
+                box-shadow: none;
+                padding: 0;
+                border-radius: 0;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid; /* Evita que los títulos se queden solos al final de la hoja */
+            }
+            .alert {
+                page-break-inside: avoid;
+            }
+            /* Forzar la impresión de colores de fondo en las cajas */
+            .alert-info, .alert-warning, th {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            /* Numeración de páginas */
+            @page {
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <!-- LOGO EN LA CABECERA -->
+        <div class="header-logo">
+            <img src="logo.png" alt="Bytes PC Logo">
+        </div>
+
+        <h1>Gestión de Caja</h1>
+        <div class="subtitle">Manual de Usuario y Guía de Arqueo<br>Creado por BytesPC.es</div>
+
+        <h2>1. Introducción</h2>
+        <p>Bienvenido a <strong>Gestión de Caja</strong>, la herramienta definitiva para controlar el flujo de dinero de tu negocio sin descuadres.</p>
+        <p>Este programa <strong>no es un TPV ni un sistema de facturación</strong>. Es un sistema de <strong>arqueo y cierre de caja</strong> diseñado para comparar lo que dice tu TPV (ventas en Tarjeta y en Efectivo) con el dinero real que hay físicamente en el cajón al final del turno.</p>
+
+        <h2>2. Primeros Pasos</h2>
+        
+        <h3>Instalación y Registro</h3>
+        <ol>
+            <li>Ejecuta el archivo <code>Instalador_Gestion_Caja.exe</code> y sigue los pasos en pantalla. Se creará un acceso directo en tu escritorio.</li>
+            <li>La primera vez que abras el programa, te dará la bienvenida y te pedirá que crees un <strong>Nombre de Usuario</strong> y una <strong>Contraseña</strong> de administrador. (Guárdalos en un lugar seguro).</li>
+        </ol>
+
+        <h3>Configuración (Botón ⚙️ Ajustes)</h3>
+        <p>Una vez dentro, pulsa el botón gris <strong>⚙️ Ajustes</strong> en la esquina superior derecha para personalizar el programa:</p>
+        <ul>
+            <li>Escribe el <strong>Nombre real de tu negocio</strong> (aparecerá en la cabecera).</li>
+            <li>Sube una imagen con tu <strong>Logo</strong> (formatos JPG, PNG o WEBP).</li>
+            <li>En esta misma pantalla, puedes cambiar tu contraseña en la sección de Seguridad.</li>
+        </ul>
+
+        <h2>3. Uso Diario: El Cierre de Caja</h2>
+        <p>Para registrar el dinero, asegúrate de estar en la pestaña <strong>"Diario"</strong> (botón azul). Verás un formulario con los siguientes campos:</p>
+        
+        <table>
+            <tr>
+                <th>Campo del Formulario</th>
+                <th>Explicación</th>
+            </tr>
+            <tr>
+                <td><strong>Fecha</strong></td>
+                <td>Selecciona el día del cierre (no permite seleccionar fechas futuras).</td>
+            </tr>
+            <tr>
+                <td><strong>Turno</strong></td>
+                <td>Elige entre <em>Mañana</em>, <em>Tarde</em> o <em>Jornada Completa</em> (si no pudiste cerrar a mediodía).</td>
+            </tr>
+            <tr>
+                <td><strong>Facturado Tarjeta (TPV)</strong></td>
+                <td>Copia el total de ventas con tarjeta que marca tu TPV.</td>
+            </tr>
+            <tr>
+                <td><strong>Facturado Efectivo (TPV)</strong></td>
+                <td>Copia el total de ventas en efectivo que marca tu TPV.</td>
+            </tr>
+            <tr>
+                <td><strong>Fondo Inicial (Cambio)</strong></td>
+                <td>El dinero en monedas/billetes que pusiste en el cajón al abrir para dar cambio. <em>Si no pusiste cambio, deja 0</em>.</td>
+            </tr>
+            <tr>
+                <td><strong>Gastos en Efectivo</strong></td>
+                <td>Si pagaste algo al proveedor con dinero del cajón, pon la cantidad aquí.</td>
+            </tr>
+            <tr>
+                <td><strong>Proveedor / Motivo</strong></td>
+                <td>Escribe a quién le pagaste (ej. "Harina - Paco", "Bombonas").</td>
+            </tr>
+            <tr>
+                <td><strong>Efectivo Contado en Cajón</strong></td>
+                <td>Cuenta todo el dinero físico que hay en el cajón en ese momento y escribe la cantidad.</td>
+            </tr>
+        </table>
+
+        <h2>4. ¿Cómo funciona el Cálculo del Descuadre?</h2>
+        <p>Al pulsar <strong>"Guardar y Calcular Cuadre"</strong>, el programa hace la magia por ti calculando el <em>Efectivo Esperado</em>:</p>
+        
+        <div class="alert alert-info">
+            <strong>Fórmula:</strong> (Fondo Inicial + Efectivo TPV) - Gastos = Efectivo Esperado.<br>
+            Luego calcula: (Efectivo Contado - Efectivo Esperado) = <strong>Descuadre</strong>.
+        </div>
+
+        <ul>
+            <li><span class="text-success">Descuadre 0.00 € (Verde):</span> ¡Perfecto! Las cuentas coinciden al céntimo.</li>
+            <li><span class="text-danger">Descuadre Negativo (ej. -5.00 € en Rojo):</span> Falta dinero en el cajón.</li>
+            <li><span class="text-danger">Descuadre Positivo (ej. +5.00 € en Rojo):</span> Sobra dinero en el cajón.</li>
+        </ul>
+
+        <h2>5. Herramientas Adicionales</h2>
+        <ul>
+            <li><strong>✏️ Editar un error:</strong> En la vista "Diario", si te equivocaste al teclear, pulsa el botón del lápiz en la fila de la tabla, corrige el dato y guarda. El descuadre se recalculará solo.</li>
+            <li><strong>🗑️ Borrar un registro:</strong> Si hiciste un cierre doble o de prueba, pulsa el icono de la papelera y confirma.</li>
+            <li><strong>Ver Histórico:</strong> Pulsa los botones <strong>"Semanal"</strong> o <strong>"Mensual"</strong> para ver los totales acumulados. <em>(Nota: En estas vistas no se puede borrar ni editar nada, para proteger el historial).</em></li>
+            <li><strong>📄 Descargar PDF:</strong> Pulsa el botón rojo para abrir la ventana de impresión. Selecciona "Guardar como PDF" para archivar el cierre del día o enviarlo por correo.</li>
+            <li><strong>💾 Copia de Seguridad:</strong> Pulsa el botón azul "Copia". Se descargará un archivo con la fecha. <strong>Haz esto una vez a la semana y guárdalo en un pendrive</strong> por si el ordenador se estropea.</li>
+        </ul>
+
+        <div class="alert alert-warning">
+            <strong>¿Dónde se guardan mis datos?</strong><br>
+            Por seguridad, el programa guarda toda la información de forma local en tu ordenador, exactamente en la carpeta: <code>C:\Users\TuUsuario\Documents\GestionCaja</code>. Nadie más tiene acceso a ellos.
+        </div>
+
+        <!-- FOOTER CON LOGO -->
+        <div class="footer">
+            <img src="logo.png" alt="Bytes PC Logo"><br>
+            Documento generado para el software Gestión de Caja.<br>
+            <strong>Creado por BytesPC.es</strong> - Todos los derechos reservados.
+        </div>
+    </div>
+
+</body>
+</html>
