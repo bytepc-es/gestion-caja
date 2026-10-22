@@ -1,21 +1,22 @@
 [Setup]
 AppName=Gestion de Caja
-AppVersion=1.0
-; AQUÍ APARECE TU NOMBRE COMO CREADOR
+AppVersion=1.2.0
 AppPublisher=Bytespc.es
 AppCopyright=Copyright (C) 2026 Bytespc.es. Todos los derechos reservados.
 DefaultDirName={autopf}\Gestion de Caja
 DefaultGroupName=Gestion de Caja
 OutputDir=Output
-OutputBaseFilename=Instalador_Gestion_Caja
+OutputBaseFilename=Instalador_Gestion_Caja_v1.2
 Compression=lzma
 SolidCompression=yes
 PrivilegesRequired=admin
-
-; Propiedades del archivo .exe
 VersionInfoCompany=Bytespc.es
-VersionInfoDescription=Instalador de Gestion de Caja
+VersionInfoDescription=Instalador de Gestion de Caja v1.2
 VersionInfoCopyright=Copyright (C) 2026 Bytespc.es
+
+; ICONO DEL INSTALADOR
+SetupIconFile=icon.ico
+UninstallDisplayIcon={app}\icon.ico
 
 [Languages]
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
@@ -24,12 +25,14 @@ Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-; RUTA EXACTA CONFIGURADA CON TU USUARIO "HP"
-Source: "C:\Users\HP\Downloads\phpdesktop-chrome-130.1-php-8.3\phpdesktop-chrome-130.1-php-8.3\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+; RUTA CORREGIDA SEGÚN TU CAPTURA
+Source: "C:\Users\HP\Downloads\phpdesktop-chrome-130.1-php-8.3\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\Gestion de Caja"; Filename: "{app}\phpdesktop-chrome.exe"
-Name: "{autodesktop}\Gestion de Caja"; Filename: "{app}\phpdesktop-chrome.exe"; Tasks: desktopicon
+; ACCESOS DIRECTOS USANDO EL NUEVO NOMBRE GestionCaja.exe
+Name: "{group}\Gestion de Caja"; Filename: "{app}\GestionCaja.exe"; IconFilename: "{app}\icon.ico"
+Name: "{autodesktop}\Gestion de Caja"; Filename: "{app}\GestionCaja.exe"; IconFilename: "{app}\icon.ico"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\phpdesktop-chrome.exe"; Description: "{cm:LaunchProgram,Gestion de Caja}"; Flags: nowait postinstall skipifsilent
+; EJECUTAR EL NUEVO NOMBRE
+Filename: "{app}\GestionCaja.exe"; Description: "{cm:LaunchProgram,Gestion de Caja}"; Flags: nowait postinstall skipifsilent

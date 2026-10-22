@@ -1,0 +1,25 @@
+{
+  "application": {
+    "name": "Gestion de Caja",
+    "version": "1.2.0"
+  },
+  "main_window": {
+    "title": "Gestión de Caja",
+    "icon": "icon.ico",
+    "width": 1200,
+    "height": 850,
+    "resizable": true,
+    "maximize": true,
+    "start_maximized": true
+  },
+  "web_server": {
+    "listen_on": "127.0.0.1:0",
+    "www_directory": "www",
+    "index_files": ["index.php"]
+  },
+  "chrome": {
+    "context_menu": false,
+    "devtools": false,
+    "print_preview": true
+  }
+}
